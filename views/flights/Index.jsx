@@ -52,6 +52,7 @@ function Index(props) {
             </div>
           ))}
         </ul>
+        
         {/* buttons */}
         <div className="d-flex">
           <a href="/flights/new">

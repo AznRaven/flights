@@ -35,23 +35,56 @@ function Show(props) {
         <ul>
           {props.flight.destinations.map((destination) => (
             <>
-            <div className="d-flex">
-              <form
-                action={`/flights/${props.flight._id}/destinations/${destination._id}?_method=DELETE`}
-                method="POST"
-              >
-                <input type="submit" value="X" />
-              </form>
+              <div className="d-flex">
+                <form
+                  action={`/flights/${props.flight._id}/destinations/${destination._id}?_method=DELETE`}
+                  method="POST"
+                >
+                  <input type="submit" value="X" />
+                </form>
 
-              <li key={destination._id} style={{ listStyle: "none" }}>
-                <p>Airport: {destination.airport}</p>
-                <p>Arrival: {destination?.arrival?.toString()}</p>
-              </li>
-            </div>
-              
+                <li key={destination._id} style={{ listStyle: "none" }}>
+                  <p>Airport: {destination.airport}</p>
+                  <p>Arrival: {destination?.arrival?.toString()}</p>
+                </li>
+              </div>
             </>
           ))}
         </ul>
+        <div style={{ width: "60vw" }}>
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th scope="col">Airport</th>
+                <th scope="col">Arrival</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              {props.flight.destinations.map((destination) => (
+                <>
+                  <tr>
+                    <th scope="row">{destination.airport}</th>
+                    <td>{destination?.arrival?.toString()}</td>
+                    <td>Otto</td>
+                    <td>
+                      
+                      <form
+                        action={`/flights/${props.flight._id}/destinations/${destination._id}?_method=DELETE`}
+                        method="POST"
+                      >
+                        <button className="btn btn-outline-danger mx-5">
+                          Delete
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                </>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <br />
         <br />
