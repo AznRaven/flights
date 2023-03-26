@@ -31,8 +31,10 @@ function Show(props) {
         <h3>Flight Number: {props.flight.flightNo}</h3>
         <h3>Departs: {props.flight?.departs?.toString()}</h3>
         {/* <h3>Destination: {props.flight.destinations[0].name}</h3> */}
+        <br />
+        <br />
 
-        <ul>
+        {/* <ul>
           {props.flight.destinations.map((destination) => (
             <>
               <div className="d-flex">
@@ -50,7 +52,7 @@ function Show(props) {
               </div>
             </>
           ))}
-        </ul>
+        </ul> */}
         <div style={{ width: "60vw" }}>
           <table class="table text-center">
             <thead>
@@ -67,9 +69,8 @@ function Show(props) {
                   <tr>
                     <th scope="row">{destination.airport}</th>
                     <td>{destination?.arrival?.toString()}</td>
-                    <td>Otto</td>
+                    <td>Edit</td>
                     <td>
-                      
                       <form
                         action={`/flights/${props.flight._id}/destinations/${destination._id}?_method=DELETE`}
                         method="POST"
